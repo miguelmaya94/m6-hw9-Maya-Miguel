@@ -17,14 +17,23 @@ form.onsubmit = function (e) {
 
         })
         .then(function (data) {
+
             console.log(data)
             var div = document.createElement('div')
             var h3 = document.createElement('h3')
             h3.textContent = data.main.temp
             div.appendChild(h3)
-            document.getElementById("current").innerHTML = "Current: " + h3.innerHTML + "° F";
+            document.getElementById("current").innerHTML = "Current: " + h3.innerHTML + "  &#8457";
 
-            console.log(data)
+            var divfeel = document.createElement('div')
+            var h3feel = document.createElement('h3')
+            h3feel.textContent = data.main.feels_like
+            divfeel.appendChild(h3feel)
+            document.getElementById("feels").innerHTML = "Feels like: " + h3feel.innerHTML + "  &#8457";
+
+           
+
+ 
             var divfive = document.createElement('div')
             var h3five = document.createElement('h3')
             h3five.textContent = data.weather[0].description
@@ -37,8 +46,6 @@ form.onsubmit = function (e) {
             var h2 = document.createElement('h2')
             h2.textContent = data.name
             divtwo.appendChild(h2)
-          
-
             document.getElementById("location").innerHTML = h2.innerHTML;
 
        
