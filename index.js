@@ -1,7 +1,7 @@
 var form = document.querySelector('form')
 var locationInput = document.querySelector('input[type=text]')
 
-var allWeather = document.getElementById('weather')
+
 
 form.onsubmit = function (e) {
     e.preventDefault()
@@ -48,14 +48,37 @@ form.onsubmit = function (e) {
             divtwo.appendChild(h2)
             document.getElementById("location").innerHTML = h2.innerHTML;
 
-       
 
-            var divfour = document.createElement('div')
-            var h3four = document.createElement('h3')
-            h3four.textContent = data.timezone
-            divfour.appendChild(h3four)
-            document.getElementById("last").innerHTML = "Last updated: " + h3four.innerHTML;
-        
+
+
+
+
+
+
+            var divlon = document.createElement('div')
+            var h3lon = document.createElement('h3')
+            h3lon.textContent = data.coord.lon
+            divlon.appendChild(h3lon)
+            console.log(h3lon)
+
+            var divlat = document.createElement('div')
+            var h3lat = document.createElement('h3')
+            h3lat.textContent = data.coord.lat
+            divlat.appendChild(h3lat)
+            console.log(h3lat)
+
+
+            var divicon = document.createElement('div')
+            var h3icon = document.createElement('h3')
+            h3icon.textContent = data.weather[0].icon
+            divicon.appendChild(h3icon)
+            document.getElementById("myImg").src = h3icon;
+          
+
+
+
+            const date = new Date(document.lastModified);
+            document.getElementById("last").innerHTML = "Last Updated:  " + date;
 
 
         })
